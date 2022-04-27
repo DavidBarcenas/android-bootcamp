@@ -1,3 +1,11 @@
 <resources>
-    <string name="app_name">FirstApp</string>
+    <string name="app_name">Propina</string>
+    <string name="account_mount">Monto de la cuenta</string>
+    <string name="cost_of_service_edit_text"></string>
+    <string name="service_question">¿Cómo fue el servicio?</string>
+    <string name="amazing_option">Excelente (20%)</string>
+    <string name="good_option">Bueno (15%)</string>
+    <string name="okay_option">Normal (10%)</string>
+    <string name="switch_title">¿Redondear?</string>
+    <string name="button_calculate_text">Calcular</string>
 </resources>
