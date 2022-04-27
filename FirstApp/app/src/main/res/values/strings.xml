@@ -8,4 +8,5 @@
     <string name="okay_option">Normal (10%)</string>
     <string name="switch_title">¿Redondear?</string>
     <string name="button_calculate_text">Calcular</string>
+    <string name="tip_amount">Monto de propina: %s</string>
 </resources>
