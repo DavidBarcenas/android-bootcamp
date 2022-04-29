@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">Dogglers</string>
+    <string name="horizontal">Horizontal</string>
+    <string name="vertical">Vertical</string>
+    <string name="grid">Cuadricula</string>
 </resources>
