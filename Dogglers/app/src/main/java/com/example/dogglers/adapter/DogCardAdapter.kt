@@ -8,12 +8,15 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dogglers.R
-import com.example.dogglers.model.Dog
+import com.example.dogglers.data.Datasource
 
 class DogCardAdapter(
     private val context: Context,
-    private val dataset: List<Dog>
+    private val layout: Int
 ) : RecyclerView.Adapter<DogCardAdapter.ItemViewHolder>() {
+
+    private val dogList = Datasource.dogs
+
     class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val dogImage: ImageView = view.findViewById(R.id.dog_image)
         val dogName: TextView = view.findViewById(R.id.dog_name)
@@ -22,14 +25,19 @@ class DogCardAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-
+        val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.vertical_horizontal_list_item, parent, false)
+        return ItemViewHolder(adapterLayout)
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        TODO("Not yet implemented")
+        val dog = dogList[position]
+        holder.dogImage.setImageResource(dog.imageResourceId)
+        holder.dogName.text = dog.name
+
+        val resources = context?.resources
+        holder.dogAge.text = resources?.getString(R.string.dog_age, dog.age)
+        holder.dogHobbies.text = resources?.getString(R.string.dog_hobbies, dog.hobbies)
     }
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount() = dogList.size
 }

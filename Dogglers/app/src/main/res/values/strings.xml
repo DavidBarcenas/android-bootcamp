@@ -3,4 +3,6 @@
     <string name="horizontal">Horizontal</string>
     <string name="vertical">Vertical</string>
     <string name="grid">Cuadricula</string>
+    <string name="dog_age">Age: %s</string>
+    <string name="dog_hobbies">Hobbies: %s</string>
 </resources>
