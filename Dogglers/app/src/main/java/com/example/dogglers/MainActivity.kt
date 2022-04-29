@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.horizontalBtn.setOnClickListener { launchHorizontal() }
         binding.verticalBtn.setOnClickListener { launchVertical() }
+        binding.gridBtn.setOnClickListener { launchGrid() }
     }
 
     private fun launchHorizontal() {
@@ -26,6 +27,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun launchVertical() {
         listIntent = Intent(this, VerticalListActivity::class.java)
+        startActivity(listIntent)
+    }
+
+    private fun launchGrid() {
+        listIntent = Intent(this, GridListActivity::class.java)
         startActivity(listIntent)
     }
 }
