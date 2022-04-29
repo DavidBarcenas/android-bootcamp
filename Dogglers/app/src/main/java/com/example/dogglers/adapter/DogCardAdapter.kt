@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dogglers.R
+import com.example.dogglers.const.Layout
 import com.example.dogglers.data.Datasource
 
 class DogCardAdapter(
@@ -25,7 +26,15 @@ class DogCardAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val adapterLayout = LayoutInflater.from(parent.context).inflate(R.layout.vertical_horizontal_list_item, parent, false)
+        var card: Int;
+
+        if(layout == Layout.GRID) {
+            card = R.layout.grid_list_item
+        } else {
+            card = R.layout.vertical_horizontal_list_item
+        }
+
+        val adapterLayout = LayoutInflater.from(parent.context).inflate(card, parent, false)
         return ItemViewHolder(adapterLayout)
     }
 
