@@ -16,10 +16,16 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.horizontalBtn.setOnClickListener { launchHorizontal() }
+        binding.verticalBtn.setOnClickListener { launchVertical() }
     }
 
     private fun launchHorizontal() {
         listIntent = Intent(this, HorizontalListActivity::class.java)
+        startActivity(listIntent)
+    }
+
+    private fun launchVertical() {
+        listIntent = Intent(this, VerticalListActivity::class.java)
         startActivity(listIntent)
     }
 }
