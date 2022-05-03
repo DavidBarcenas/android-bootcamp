@@ -7,12 +7,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.words.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {
+
+    companion object {
+        const val LETTER = "letter"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val letterId = "A"
+        val letterId = intent?.extras?.getString(LETTER).toString()
 
         val recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
