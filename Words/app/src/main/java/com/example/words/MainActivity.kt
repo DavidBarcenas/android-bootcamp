@@ -17,6 +17,6 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView = binding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
-        // recyclerView.adapter = LetterAdapter()
+        recyclerView.adapter = LetterAdapter()
     }
 }
