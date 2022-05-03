@@ -1,5 +1,6 @@
 package com.example.words
 
+import android.content.Intent
 import android.os.Build
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +17,7 @@ class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
     /**
      * Provides a reference for the views needed to display items in your list.
      */
-    class LetterViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class LetterViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
         val button: Button = view.findViewById(R.id.button_item)
     }
 
@@ -27,7 +28,7 @@ class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): LetterViewHolder {
         val layout = LayoutInflater.from(parent.context).inflate(R.layout.item_view, parent, false)
         layout.accessibilityDelegate = Accessibility
-        return LetterViewHolder((layout))
+        return LetterViewHolder(layout)
     }
 
     /**
@@ -36,6 +37,13 @@ class LetterAdapter : RecyclerView.Adapter<LetterAdapter.LetterViewHolder>() {
     override fun onBindViewHolder(holder: LetterViewHolder, position: Int) {
         val item = list[position]
         holder.button.text = item.toString()
+
+        holder.button.setOnClickListener {
+            val context = holder.view.context
+            val intent = Intent(context, DetailActivity::class.java)
+            intent.putExtra("letter", holder.button.text.toString())
+            context.startActivity(intent)
+        }
     }
 
     companion object Accessibility : View.AccessibilityDelegate() {
