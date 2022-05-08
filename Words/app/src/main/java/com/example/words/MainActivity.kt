@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
         navController = navHostFragment.navController
 
         // This ensures that action bar (app bar) buttons are displayed,
-        // such as the menu option
+        // such as the menu option and back button
         setupActionBarWithNavController(navController)
     }
 
