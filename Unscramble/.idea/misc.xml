@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_error.xml" value="0.189" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.38632246376811596" />
+        <entry key="app/src/main/res/layout/game_fragment.xml" value="0.38632246376811596" />
       </map>
     </option>
   </component>
