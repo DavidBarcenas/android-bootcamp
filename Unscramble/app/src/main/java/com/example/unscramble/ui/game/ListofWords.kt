@@ -183,4 +183,5 @@ val allWordsList: List<String> =
         "zigzag",
         "zoology",
         "zone",
-        "zeal")
+        "zeal"
+    )

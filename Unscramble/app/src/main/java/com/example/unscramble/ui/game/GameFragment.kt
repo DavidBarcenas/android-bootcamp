@@ -11,7 +11,7 @@ import com.example.unscramble.databinding.GameFragmentBinding
 class GameFragment : Fragment() {
     private var score = 0
     private var currentWordCount = 0
-    private var currentScrambledWord = "test"
+    private var currentScrambledWord = "Test"
 
     // Binding object instance with access to the views in the game_fragment.xml layout
     private lateinit var binding: GameFragmentBinding
