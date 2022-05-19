@@ -45,21 +45,6 @@ class GameFragment : Fragment() {
         // Specify the fragment view as the lifecycle owner of the binding.
         // This is used so that the binding can observe LiveData updates
         binding.lifecycleOwner = viewLifecycleOwner
-
-        // Observe the currentScrambledWord LiveData.
-        viewModel.currentScrambledWord.observe(viewLifecycleOwner, { newWord ->
-            binding.textViewUnscrambledWord.text = newWord
-        })
-
-        viewModel.score.observe(viewLifecycleOwner, { newScore ->
-            binding.score.text = getString(R.string.score, newScore)
-        })
-
-        viewModel.currentWordCount.observe(viewLifecycleOwner,
-            { newWordCount ->
-                binding.wordCount.text =
-                    getString(R.string.word_count, newWordCount, MAX_NO_OF_WORDS)
-            })
     }
 
     override fun onDetach() {
