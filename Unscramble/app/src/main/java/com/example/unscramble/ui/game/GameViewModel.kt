@@ -1,8 +1,12 @@
 package com.example.unscramble.ui.game
 
+import android.text.Spannable
+import android.text.SpannableString
+import android.text.style.TtsSpan
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import androidx.lifecycle.ViewModel
 
 class GameViewModel : ViewModel() {
@@ -10,8 +14,26 @@ class GameViewModel : ViewModel() {
     private lateinit var currentWord: String;
 
     private val _currentScrambledWord = MutableLiveData<String>();
-    val currentScrambledWord: LiveData<String>
-        get() = _currentScrambledWord
+
+    /*
+        This var is for talkback
+        read letter by letter for better understanding
+    */
+    val currentScrambledWord: LiveData<Spannable> = Transformations.map(_currentScrambledWord) {
+        if (it == null) {
+            SpannableString("")
+        } else {
+            val scrambledWord = it.toString()
+            val spannable: Spannable = SpannableString(scrambledWord)
+            spannable.setSpan(
+                TtsSpan.VerbatimBuilder(scrambledWord).build(),
+                0,
+                scrambledWord.length,
+                Spannable.SPAN_INCLUSIVE_INCLUSIVE
+            )
+            spannable
+        }
+    }
 
     private var _currentWordCount = MutableLiveData(0)
     val currentWordCount: LiveData<Int>
@@ -20,11 +42,6 @@ class GameViewModel : ViewModel() {
     private val _score = MutableLiveData(0)
     val score: LiveData<Int>
         get() = _score
-
-    override fun onCleared() {
-        super.onCleared()
-        Log.d("GameFragment", "GameViewModel destroyed!")
-    }
 
     /*
     * Updates currentWord and currentScrambledWord with the next word.
